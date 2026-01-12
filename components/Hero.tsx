@@ -3,13 +3,25 @@ import { Download, ChevronRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('projects');
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   const handleDownloadResume = () => {
-    // Link updated to the provided Google Drive URL
-    const resumeUrl = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
-    window.open(resumeUrl, '_blank', 'noopener,noreferrer');
+    // Attempt to open local asset first, or fallback to Google Drive link
+    const localResume = 'assets/docs/resume.pdf';
+    const remoteResume = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
+    
+    // In a real environment, we'd check if local file exists, 
+    // here we prioritize the external link for immediate availability
+    window.open(remoteResume, '_blank', 'noopener,noreferrer');
   };
 
   return (
