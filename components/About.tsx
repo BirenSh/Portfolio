@@ -9,12 +9,17 @@ const About: React.FC = () => {
         <div className="relative group">
           <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transition-transform duration-500 group-hover:scale-[1.02]">
             <img 
-              src="https://picsum.photos/800/800?grayscale" 
-              alt="Birendra Sharma Professional" 
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              src="https://raw.githubusercontent.com/BirenSh/BirenSh/main/profile.jpg" 
+              alt="Birendra Sharma" 
+              className="w-full h-full object-cover transition-all duration-700 object-top"
+              onError={(e) => {
+                // Fallback to a high-quality avatar if the external link fails
+                (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=Birendra+Sharma&background=6366f1&color=fff&size=512";
+              }}
             />
           </div>
-          <div className="absolute -bottom-6 -right-6 p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 hidden md:block group-hover:scale-110 transition-transform">
+          {/* Badge */}
+          <div className="absolute -bottom-6 -right-6 p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 hidden md:block group-hover:scale-110 transition-transform z-10">
             <span className="text-4xl font-bold bg-gradient-to-br from-indigo-500 to-cyan-400 bg-clip-text text-transparent">3+</span>
             <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Years Experience</p>
           </div>
