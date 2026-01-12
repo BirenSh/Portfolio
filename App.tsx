@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -23,6 +22,15 @@ const App: React.FC = () => {
       setIsDarkMode(true);
       document.documentElement.classList.add('dark');
     }
+
+    // Mouse moving effect
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const toggleTheme = () => {
@@ -37,10 +45,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark bg-slate-950' : 'bg-slate-50'} transition-colors duration-500 overflow-x-hidden`}>
+    <div className={`min-h-screen ${isDarkMode ? 'dark bg-slate-950' : 'bg-slate-50'} transition-colors duration-500 overflow-x-hidden relative z-10`}>
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       
-      <main className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <main className="container mx-auto px-4 md:px-8 max-w-7xl relative">
         <Hero />
         <Stats />
         <About />

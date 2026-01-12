@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --mouse-x: 50%;
+        --mouse-y: 50%;
+      }
       body {
         font-family: 'Inter', sans-serif;
         scroll-behavior: smooth;
+        position: relative;
       }
       .mono {
         font-family: 'JetBrains Mono', monospace;
@@ -22,11 +26,76 @@
         background: transparent;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
+        background: #818cf8;
         border-radius: 10px;
       }
       .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #475569;
+        background: #4f46e5;
+      }
+      
+      /* Global Interactivity Styles */
+      button, 
+      a, 
+      .card-lift, 
+      .hover-glow, 
+      [role="button"],
+      input[type="submit"],
+      input[type="button"] {
+        cursor: pointer;
+      }
+
+      /* Subtle AI Glow Effect */
+      .hover-glow:hover {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+      .dark .hover-glow:hover {
+        box-shadow: 0 0 25px rgba(129, 140, 248, 0.2);
+      }
+
+      /* Card Lift Animation */
+      .card-lift {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      }
+      .card-lift:hover {
+        transform: translateY(-8px);
+      }
+
+      /* Animated Underline */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(to right, #6366f1, #06b6d4);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Background Spotlight Effect */
+      .spotlight {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          800px circle at var(--mouse-x) var(--mouse-y),
+          rgba(99, 102, 241, 0.08),
+          transparent 80%
+        );
+      }
+      .dark .spotlight {
+        background: radial-gradient(
+          1000px circle at var(--mouse-x) var(--mouse-y),
+          rgba(79, 70, 229, 0.15),
+          transparent 80%
+        );
       }
     </style>
 <script type="importmap">
@@ -41,6 +110,7 @@
 </script>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300">
+    <div class="spotlight" id="spotlight"></div>
     <div id="root"></div>
 </body>
 </html>

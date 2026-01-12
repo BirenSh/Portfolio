@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Smartphone, 
@@ -44,34 +43,34 @@ export const SKILLS: SkillGroup[] = [
   {
     category: "Languages",
     skills: [
-      { name: "Kotlin", icon: <Smartphone className="w-5 h-5 text-purple-500" /> },
-      { name: "Jetpack Compose", icon: <Layout className="w-5 h-5 text-blue-500" /> },
-      { name: "KMP", icon: <Infinity className="w-5 h-5 text-indigo-500" /> }
+      { name: "Kotlin", icon: <Smartphone className="w-5 h-5 text-indigo-500" /> },
+      { name: "Jetpack Compose", icon: <Layout className="w-5 h-5 text-cyan-500" /> },
+      { name: "KMP", icon: <Infinity className="w-5 h-5 text-violet-500" /> }
     ]
   },
   {
     category: "Android Core",
     skills: [
-      { name: "MVVM", icon: <Layers className="w-5 h-5 text-orange-500" /> },
-      { name: "Coroutines", icon: <Zap className="w-5 h-5 text-yellow-500" /> },
-      { name: "DI Hilt", icon: <Wrench className="w-5 h-5 text-green-500" /> }
+      { name: "MVVM", icon: <Layers className="w-5 h-5 text-fuchsia-500" /> },
+      { name: "Coroutines", icon: <Zap className="w-5 h-5 text-cyan-400" /> },
+      { name: "DI Hilt", icon: <Wrench className="w-5 h-5 text-blue-500" /> }
     ]
   },
   {
     category: "Networking & DB",
     skills: [
-      { name: "Retrofit", icon: <Code2 className="w-5 h-5 text-red-500" /> },
-      { name: "SQLite", icon: <Database className="w-5 h-5 text-blue-400" /> },
-      { name: "DataStore", icon: <Database className="w-5 h-5 text-emerald-500" /> }
+      { name: "Retrofit", icon: <Code2 className="w-5 h-5 text-rose-500" /> },
+      { name: "SQLite", icon: <Database className="w-5 h-5 text-sky-400" /> },
+      { name: "DataStore", icon: <Database className="w-5 h-5 text-indigo-400" /> }
     ]
   },
   {
     category: "Tools & AI",
     skills: [
-      { name: "Android Studio", icon: <Smartphone className="w-5 h-5 text-green-400" /> },
+      { name: "Android Studio", icon: <Smartphone className="w-5 h-5 text-blue-600" /> },
       { name: "Cursor", icon: <Bot className="w-5 h-5 text-slate-400" /> },
-      { name: "N8N", icon: <Cpu className="w-5 h-5 text-pink-500" /> },
-      { name: "Firebase", icon: <Cloud className="w-5 h-5 text-yellow-600" /> }
+      { name: "N8N", icon: <Cpu className="w-5 h-5 text-violet-600" /> },
+      { name: "Firebase", icon: <Cloud className="w-5 h-5 text-amber-500" /> }
     ]
   }
 ];
