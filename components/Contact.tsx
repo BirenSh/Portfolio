@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { Mail, MessageSquare, Send, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -34,6 +34,16 @@ const Contact: React.FC = () => {
               <div>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Phone</p>
                 <p className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">+91 9742097725</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-6 group cursor-pointer">
+              <div className="p-4 bg-rose-50 dark:bg-rose-950/30 text-rose-500 rounded-2xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)] transition-all">
+                <MapPin size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Address</p>
+                <p className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors">Bangalore, India</p>
               </div>
             </div>
           </div>
