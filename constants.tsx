@@ -8,10 +8,10 @@ import {
   Cloud, 
   Wrench, 
   Layout,
-  Terminal,
-  Infinity,
   Zap,
-  Bot
+  Bot,
+  Infinity,
+  Search
 } from 'lucide-react';
 import { ExperienceItem, SkillGroup, ProjectItem, RoadmapItem } from './types';
 
@@ -19,12 +19,13 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     company: "Kapture CX",
     role: "Android Developer",
-    period: "Feb 2023 – Jan 2026",
+    period: "Feb 2023 – Present",
     achievements: [
-      "Leading Android CRM projects, ensuring seamless integration and delivery.",
-      "SDK development to enhance Android development efficiency across multiple projects.",
-      "REST API integration with efficient data handling using Retrofit and JSON.",
-      "Implementation of Firebase features and offline-first support for smooth data transfer."
+      "Leading Android development for CRM projects, ensuring seamless integration and delivery.",
+      "Collaborating with API developers to provide efficient data handling through RESTful APIs and JSON.",
+      "Designed and developed a reusable SDK to enhance Android development efficiency across multiple projects.",
+      "Actively participating in sprint planning, demos, and retrospectives.",
+      "Successfully launched CRM projects for clients including Philips, Bajaj Electricals, Hindware, Faber, and Frootle."
     ]
   },
   {
@@ -32,9 +33,10 @@ export const EXPERIENCE: ExperienceItem[] = [
     role: "Android Developer",
     period: "Dec 2021 – Nov 2022",
     achievements: [
-      "UI Design on Figma and custom UI/UX implementations for new requirements.",
-      "Project Deployment on Google Play Store.",
-      "Collaborated with the Android team to establish common development tools and library usage."
+      "Contributed to service-based project deliveries, handling everything from UI/UX design to Play Store publishing.",
+      "Developed custom UI/UX implementations for new requirements using Android Studio and Jetpack Compose.",
+      "Collaborated with the Android team to establish common development tools and library usage across projects.",
+      "Estimated development time and communicated progress with Digital Managers and Project Managers."
     ]
   }
 ];
@@ -45,32 +47,32 @@ export const SKILLS: SkillGroup[] = [
     skills: [
       { name: "Kotlin", icon: <Smartphone className="w-5 h-5 text-indigo-500" /> },
       { name: "Jetpack Compose", icon: <Layout className="w-5 h-5 text-cyan-500" /> },
-      { name: "KMP", icon: <Infinity className="w-5 h-5 text-violet-500" /> }
+      { name: "KMP & Java", icon: <Infinity className="w-5 h-5 text-violet-500" /> }
     ]
   },
   {
-    category: "Android Core",
+    category: "Core & Arch",
     skills: [
-      { name: "MVVM", icon: <Layers className="w-5 h-5 text-fuchsia-500" /> },
-      { name: "Coroutines", icon: <Zap className="w-5 h-5 text-cyan-400" /> },
-      { name: "DI Hilt", icon: <Wrench className="w-5 h-5 text-blue-500" /> }
+      { name: "MVVM Architecture", icon: <Layers className="w-5 h-5 text-fuchsia-500" /> },
+      { name: "Coroutines & Threads", icon: <Zap className="w-5 h-5 text-cyan-400" /> },
+      { name: "Koin & DI", icon: <Wrench className="w-5 h-5 text-blue-500" /> }
     ]
   },
   {
     category: "Networking & DB",
     skills: [
-      { name: "Retrofit", icon: <Code2 className="w-5 h-5 text-rose-500" /> },
-      { name: "SQLite", icon: <Database className="w-5 h-5 text-sky-400" /> },
-      { name: "DataStore", icon: <Database className="w-5 h-5 text-indigo-400" /> }
+      { name: "Retrofit & OKHttp", icon: <Code2 className="w-5 h-5 text-rose-500" /> },
+      { name: "Room & SQLite", icon: <Database className="w-5 h-5 text-sky-400" /> },
+      { name: "Firebase Firestore", icon: <Cloud className="w-5 h-5 text-amber-500" /> }
     ]
   },
   {
     category: "Tools & AI",
     skills: [
-      { name: "Android Studio", icon: <Smartphone className="w-5 h-5 text-blue-600" /> },
-      { name: "Cursor", icon: <Bot className="w-5 h-5 text-slate-400" /> },
-      { name: "N8N", icon: <Cpu className="w-5 h-5 text-violet-600" /> },
-      { name: "Firebase", icon: <Cloud className="w-5 h-5 text-amber-500" /> }
+      { name: "Cursor & N8N", icon: <Bot className="w-5 h-5 text-slate-400" /> },
+      { name: "Clevertap & Sentry", icon: <Search className="w-5 h-5 text-emerald-500" /> },
+      { name: "Git & Bitbucket", icon: <Code2 className="w-5 h-5 text-orange-500" /> },
+      { name: "Figma (UI/UX)", icon: <Layout className="w-5 h-5 text-purple-500" /> }
     ]
   }
 ];
@@ -78,23 +80,23 @@ export const SKILLS: SkillGroup[] = [
 export const PROJECTS: ProjectItem[] = [
   {
     title: "Kapture Frontline",
-    description: "Field service management application to trace product activities and handle customer requests efficiently.",
+    description: "Field service management application to trace product activities. Integrated APIs and third-party libraries for data management using Kotlin and Java.",
     tech: ["Kotlin", "Java", "Firebase Realtime DB"]
   },
   {
     title: "Kapture Lite",
-    description: "Green energy field service management platform. A web-based Android application using modern architecture.",
-    tech: ["Kotlin", "Jetpack Compose", "WebView"]
+    description: "Green Energy Field service management. A web-based Android application built using Kotlin and Jetpack Compose.",
+    tech: ["Kotlin", "Jetpack Compose", "Web-based"]
   },
   {
     title: "Kapture Unified",
-    description: "Cross-platform CRM project (Android & iOS) with offline-first support and performance monitoring.",
-    tech: ["Kotlin", "Local DB", "Firebase Tools"]
+    description: "Cross-platform CRM project (Android & iOS) with offline-first support for smooth data transfer and local database integration.",
+    tech: ["KMP", "Offline-first", "Firebase Tools"]
   },
   {
     title: "Init-Form",
-    description: "CRUD Support application to manage input data remotely and locally with Google Sheets API as backend.",
-    tech: ["Android", "Google Sheets API", "Offline Sync"]
+    description: "CRUD Support application to manage input data remotely/locally. Uses Google Sheets API as a remote database with offline sync.",
+    tech: ["Android", "Google Sheets API", "CRUD"]
   }
 ];
 
@@ -102,28 +104,28 @@ export const ROADMAP: RoadmapItem[] = [
   {
     stage: "Stage 1",
     title: "Android Fundamentals",
-    description: "Mastering XML layouts, Activity/Fragment lifecycle, and basic Intent handling."
+    description: "XML layouts, Activity lifecycles, and early Java/Kotlin integration."
   },
   {
     stage: "Stage 2",
-    title: "Modern UI & Jetpack",
-    description: "Deep dive into Jetpack Compose, Declarative UI, and the Jetpack suite."
+    title: "Modern Compose UI",
+    description: "Mastering Declarative UI with Jetpack Compose and custom UI/UX design in Figma."
   },
   {
     stage: "Stage 3",
-    title: "Cross-Platform Era",
-    description: "Leveraging Kotlin Multiplatform (KMP) for shared logic across platforms."
+    title: "KMP & Cross-Platform",
+    description: "Building Unified CRM solutions using Kotlin Multiplatform for Android and iOS."
   },
   {
     stage: "Stage 4",
-    title: "Clean Architecture",
-    description: "Perfecting MVVM/MVI, SOLID principles, and scalable system design."
+    title: "Architecture & Scale",
+    description: "SDK development, MVVM, and optimizing performance with Firebase tools."
   }
 ];
 
 export const STATS = [
   { label: "Years Experience", value: 3, suffix: "+" },
-  { label: "Projects Delivered", value: 7, suffix: "+" },
+  { label: "Projects Delivered", value: 8, suffix: "+" },
   { label: "Top Clients", value: 6, suffix: "+" },
-  { label: "Hackathon Award", value: 2, suffix: "nd" }
+  { label: "Hackathon Rank", value: 2, suffix: "nd" }
 ];

@@ -13,8 +13,8 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   
-  const mousePos = useRef({ x: -1000, y: -1000 });
-  const currentPos = useRef({ x: -1000, y: -1000 });
+  const mousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const currentPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
@@ -30,12 +30,11 @@ const App: React.FC = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      // Immediately set visible once mouse moves
       document.documentElement.style.setProperty('--glow-opacity', '1');
     };
 
     const animateGlow = () => {
-      const easing = 0.08;
+      const easing = 0.12; // Slightly snappier easing
       currentPos.current.x += (mousePos.current.x - currentPos.current.x) * easing;
       currentPos.current.y += (mousePos.current.y - currentPos.current.y) * easing;
 
@@ -84,10 +83,10 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen transition-colors duration-500 overflow-x-hidden relative">
-      {/* Background Spotlight - Sits at z-1 */}
+      {/* Background Spotlight - Now acting as a top-level overlay glow */}
       <div className="spotlight"></div>
 
-      {/* Navbar and Content - Sits at z-10 */}
+      {/* Main Content */}
       <div className="relative z-10">
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         

@@ -2,6 +2,16 @@ import React from 'react';
 import { Download, ChevronRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const scrollToProjects = () => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDownloadResume = () => {
+    // Link updated to the provided Google Drive URL
+    const resumeUrl = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
+    window.open(resumeUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="py-20 md:py-32 flex flex-col items-center text-center">
       <h1 className="text-4xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
@@ -9,28 +19,28 @@ const Hero: React.FC = () => {
       </h1>
       
       <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400 mb-8 max-w-2xl bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-        Android Developer | Kotlin | Jetpack Compose
+        Mobile App Developer | Kotlin | Jetpack Compose
       </h2>
       
       <p className="text-lg text-slate-500 dark:text-slate-500 max-w-2xl mb-12">
-        Building scalable, high-performance Android applications with modern architecture and cutting-edge mobile technologies.
+        Android Developer with production-level experience building high-performance mobile applications. Passionate about clean architecture and modern Android technologies.
       </p>
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-        <a
-          href="#projects"
+        <button
+          onClick={scrollToProjects}
           className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/20 hover-glow hover:-translate-y-1 transition-all flex items-center justify-center gap-2 group"
         >
           View Projects
           <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
+          onClick={handleDownloadResume}
           className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover-glow transition-all flex items-center justify-center gap-2"
         >
           <Download size={20} />
           Download Resume
-        </a>
+        </button>
       </div>
 
       <div className="flex items-center gap-8">
