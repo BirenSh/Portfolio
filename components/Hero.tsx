@@ -4,10 +4,6 @@ import { Download, ChevronRight, Github, Linkedin, Mail } from 'lucide-react';
 const Hero: React.FC = () => {
   return (
     <section className="py-20 md:py-32 flex flex-col items-center text-center">
-      <div className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-50 dark:bg-indigo-950/30 rounded-full border border-indigo-100 dark:border-indigo-900/50">
-        AI-Powered Mobile Architecture
-      </div>
-      
       <h1 className="text-4xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
         Birendra Sharma
       </h1>
