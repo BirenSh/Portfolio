@@ -8,9 +8,9 @@ const About: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative group">
           <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transition-transform duration-500 group-hover:scale-[1.02]">
-            <img 
-              src="assets/images/profile.jpg" 
-              alt="Birendra Sharma" 
+            <img
+              src="/assets/images/profile.jpg"
+              alt="Birendra Sharma"
               className="w-full h-full object-cover transition-all duration-700 object-top"
               onError={(e) => {
                 // Fallback to the known remote URL if local asset isn't present yet
@@ -47,7 +47,7 @@ const About: React.FC = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
             <p className="text-sm text-slate-500 dark:text-slate-400">
               <span className="font-bold text-slate-700 dark:text-slate-300">Education:</span> BCA from Bangalore University (2018 - 2021)
