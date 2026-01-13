@@ -9,13 +9,9 @@ const About: React.FC = () => {
         <div className="relative group">
           <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transition-transform duration-500 group-hover:scale-[1.02]">
             <img
-              src="/assets/images/profile.jpg"
+              src={`${import.meta.env.BASE_URL}assets/images/profile.jpg`}
               alt="Birendra Sharma"
               className="w-full h-full object-cover transition-all duration-700 object-top"
-              onError={(e) => {
-                // Fallback to the known remote URL if local asset isn't present yet
-                (e.target as HTMLImageElement).src = "https://raw.githubusercontent.com/BirenSh/BirenSh/main/profile.jpg";
-              }}
             />
           </div>
           {/* Badge */}

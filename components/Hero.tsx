@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
 
   const handleDownloadResume = () => {
     // Attempt to open local asset first, or fallback to Google Drive link
-    const localResume = '/assets/docs/resume.pdf';
+    const localResume = `${import.meta.env.BASE_URL}assets/docs/resume.pdf`;
     const remoteResume = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
 
     // In a real environment, we'd check if local file exists, 
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
               style={{ animationDelay: `${index * 0.5}s` }}
             >
               <img
-                src={`/assets/images/${icon}`}
+                src={`${import.meta.env.BASE_URL}assets/images/${icon}`}
                 alt="Tech Icon"
                 className="w-full h-full object-contain"
               />
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
               style={{ animationDelay: `${index * 0.5}s` }}
             >
               <img
-                src={`/assets/images/${icon}`}
+                src={`${import.meta.env.BASE_URL}assets/images/${icon}`}
                 alt="Tech Icon"
                 className="w-full h-full object-contain"
               />
