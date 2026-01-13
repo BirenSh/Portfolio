@@ -18,53 +18,103 @@ const Hero: React.FC = () => {
     // Attempt to open local asset first, or fallback to Google Drive link
     const localResume = 'assets/docs/resume.pdf';
     const remoteResume = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
-    
+
     // In a real environment, we'd check if local file exists, 
     // here we prioritize the external link for immediate availability
     window.open(remoteResume, '_blank', 'noopener,noreferrer');
   };
 
-  return (
-    <section className="py-20 md:py-32 flex flex-col items-center text-center">
-      <h1 className="text-4xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-        Birendra Sharma
-      </h1>
-      
-      <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400 mb-8 max-w-2xl bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-        Mobile App Developer | Kotlin | Jetpack Compose
-      </h2>
-      
-      <p className="text-lg text-slate-500 dark:text-slate-500 max-w-2xl mb-12">
-        Android Developer with production-level experience building high-performance mobile applications. Passionate about clean architecture and modern Android technologies.
-      </p>
+  const leftIcons = [
+    'kotlin_icon.webp', 'android_icon.png', 'compose_icon.png',
+    'android_studio_icon.png', 'firbase_icon.png', 'git_icon.png'
+  ];
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-        <button
-          onClick={scrollToProjects}
-          className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/20 hover-glow hover:-translate-y-1 transition-all flex items-center justify-center gap-2 group"
-        >
-          View Projects
-          <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-        </button>
-        <button
-          onClick={handleDownloadResume}
-          className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover-glow transition-all flex items-center justify-center gap-2"
-        >
-          <Download size={20} />
-          Download Resume
-        </button>
+  const rightIcons = [
+    'figma_icon.png', 'jira_icon.png', 'bitbucket_icon.png',
+    'claude_icon.png', 'n8n_icon.png'
+  ];
+
+  return (
+    <section className="py-20 md:py-32 flex flex-col items-center text-center relative overflow-hidden">
+      {/* Left Background Icons */}
+      <div className="absolute top-20 left-0 w-full md:w-1/2 h-full overflow-visible pointer-events-none opacity-60 select-none z-0">
+        <div className="grid grid-cols-2 gap-8 p-8 transform -rotate-12 translate-x-4 md:translate-x-12">
+          {leftIcons.map((icon, index) => (
+            <div
+              key={`left-${index}`}
+              className="w-20 h-20 flex items-center justify-center animate-float"
+              style={{ animationDelay: `${index * 0.5}s` }}
+            >
+              <img
+                src={`assets/images/${icon}`}
+                alt="Tech Icon"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="flex items-center gap-8">
-        <a href="https://github.com/BirenSh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
-          <Github size={24} />
-        </a>
-        <a href="https://www.linkedin.com/in/birendra-sharma-893933215/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
-          <Linkedin size={24} />
-        </a>
-        <a href="mailto:birendrasharma055@gmail.com" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
-          <Mail size={24} />
-        </a>
+      {/* Right Background Icons */}
+      <div className="absolute top-20 right-0 w-full md:w-1/2 h-full overflow-visible pointer-events-none opacity-60 select-none z-0">
+        <div className="grid grid-cols-2 gap-8 p-8 transform rotate-12 translate-x-1/4">
+          {rightIcons.map((icon, index) => (
+            <div
+              key={`right-${index}`}
+              className="w-20 h-20 flex items-center justify-center animate-float"
+              style={{ animationDelay: `${index * 0.5}s` }}
+            >
+              <img
+                src={`assets/images/${icon}`}
+                alt="Tech Icon"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="text-4xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+          Birendra Sharma
+        </h1>
+
+        <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400 mb-8 max-w-2xl bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+          Mobile App Developer | Kotlin | Jetpack Compose
+        </h2>
+
+        <p className="text-lg text-slate-500 dark:text-slate-500 max-w-2xl mb-12">
+          Android Developer with production-level experience building high-performance mobile applications. Passionate about clean architecture and modern Android technologies.
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
+          <button
+            onClick={scrollToProjects}
+            className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/20 hover-glow hover:-translate-y-1 transition-all flex items-center justify-center gap-2 group"
+          >
+            View Projects
+            <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button
+            onClick={handleDownloadResume}
+            className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover-glow transition-all flex items-center justify-center gap-2"
+          >
+            <Download size={20} />
+            Download Resume
+          </button>
+        </div>
+
+        <div className="flex items-center gap-8">
+          <a href="https://github.com/BirenSh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
+            <Github size={24} />
+          </a>
+          <a href="https://www.linkedin.com/in/birendra-sharma-893933215/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
+            <Linkedin size={24} />
+          </a>
+          <a href="mailto:birendrasharma055@gmail.com" className="text-slate-400 hover:text-indigo-500 hover:scale-125 transition-all">
+            <Mail size={24} />
+          </a>
+        </div>
       </div>
     </section>
   );
