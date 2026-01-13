@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Smartphone, 
-  Code2, 
-  Layers, 
-  Database, 
-  Cpu, 
-  Cloud, 
-  Wrench, 
+import {
+  Smartphone,
+  Code2,
+  Layers,
+  Database,
+  Cpu,
+  Cloud,
+  Wrench,
   Layout,
   Zap,
   Bot,
@@ -19,7 +19,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     company: "Kapture CX",
     role: "Android Developer",
-    period: "Feb 2023 – Present",
+    period: "Feb 2023 to Jan 2026",
     achievements: [
       "Leading Android development for CRM projects, ensuring seamless integration and delivery.",
       "Collaborating with API developers to provide efficient data handling through RESTful APIs and JSON.",
