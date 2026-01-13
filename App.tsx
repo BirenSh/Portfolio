@@ -11,21 +11,24 @@ import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   const mousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const currentPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialDark = savedTheme === 'dark' || (!savedTheme && systemTheme);
+    // Default to dark if no saved theme, or if saved theme is 'dark'
+    const initialDark = savedTheme === 'dark' || !savedTheme;
+
     setIsDarkMode(initialDark);
     if (initialDark) {
       document.documentElement.classList.add('dark');
       document.body.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
     }
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -55,7 +58,7 @@ const App: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('mouseenter', handleMouseEnter);
-    
+
     animationFrameId.current = requestAnimationFrame(animateGlow);
 
     return () => {
@@ -69,7 +72,7 @@ const App: React.FC = () => {
   const toggleTheme = () => {
     const nextMode = !isDarkMode;
     setIsDarkMode(nextMode);
-    
+
     if (nextMode) {
       document.documentElement.classList.add('dark');
       document.body.classList.add('dark');
@@ -87,7 +90,7 @@ const App: React.FC = () => {
 
       <div className="relative z-10">
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-        
+
         <main className="container mx-auto px-4 md:px-8 max-w-7xl relative">
           <Hero />
           <Stats />
