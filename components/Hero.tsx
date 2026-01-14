@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
   const handleDownloadResume = () => {
     // Attempt to open local asset first, or fallback to Google Drive link
     const localResume = `${import.meta.env.BASE_URL}assets/docs/resume.pdf`;
-    const remoteResume = 'https://drive.google.com/file/d/1AT29RgBSNGrjHN1paSdMySu87ybbcfrt/view?usp=sharing';
+    const remoteResume = 'https://drive.google.com/file/d/1sZZmdqolH_GvEkJMgp9sHkhWnteQyfbW/view?usp=sharing';
 
     // In a real environment, we'd check if local file exists, 
     // here we prioritize the external link for immediate availability
