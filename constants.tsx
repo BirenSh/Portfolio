@@ -11,11 +11,32 @@ import {
   Zap,
   Bot,
   Infinity,
-  Search
+  Search,
+  Sparkles,
+  Network
 } from 'lucide-react';
 import { ExperienceItem, SkillGroup, ProjectItem, RoadmapItem } from './types.ts';
 
 export const EXPERIENCE: ExperienceItem[] = [
+  {
+    company: "Mobile Programming",
+    role: "SDE 2",
+    period: "Mar 2026 – Present",
+    clients: [
+      {
+        client: "Porter",
+        period: "Mar 2026 – Sep 2026 · Porter Customer App",
+        achievements: [
+          {
+            text: "Built AI-driven workflow automation to accelerate the app's architecture migration fully from RIB to MVVM.",
+            icon: <Sparkles className="w-4 h-4 text-fuchsia-500" />
+          },
+          "Contributed to the design system migration, converting legacy XML layouts to Jetpack Compose for a modern, consistent UI.",
+          "Leveraged Amplitude for product analytics, BrowserStack for cross-device testing, Jenkins for CI/CD, and Statsig for feature flagging and experimentation."
+        ]
+      }
+    ]
+  },
   {
     company: "Kapture CX",
     role: "Android Developer",
@@ -54,6 +75,7 @@ export const SKILLS: SkillGroup[] = [
     category: "Core & Arch",
     skills: [
       { name: "MVVM Architecture", icon: <Layers className="w-5 h-5 text-fuchsia-500" /> },
+      { name: "RIB Architecture", icon: <Network className="w-5 h-5 text-emerald-500" /> },
       { name: "Coroutines & Threads", icon: <Zap className="w-5 h-5 text-cyan-400" /> },
       { name: "Koin & DI", icon: <Wrench className="w-5 h-5 text-blue-500" /> }
     ]
@@ -74,10 +96,24 @@ export const SKILLS: SkillGroup[] = [
       { name: "Git & Bitbucket", icon: <Code2 className="w-5 h-5 text-orange-500" /> },
       { name: "Figma (UI/UX)", icon: <Layout className="w-5 h-5 text-purple-500" /> }
     ]
+  },
+  {
+    category: "Analytics & DevOps",
+    skills: [
+      { name: "Amplitude", icon: <Zap className="w-5 h-5 text-blue-500" /> },
+      { name: "BrowserStack", icon: <Smartphone className="w-5 h-5 text-orange-400" /> },
+      { name: "Jenkins", icon: <Infinity className="w-5 h-5 text-red-500" /> },
+      { name: "Statsig", icon: <Cpu className="w-5 h-5 text-teal-500" /> }
+    ]
   }
 ];
 
 export const PROJECTS: ProjectItem[] = [
+  {
+    title: "Porter Customer App",
+    description: "Migrated the Porter Customer App's design system from legacy XML to Jetpack Compose and built AI-driven workflow automation to accelerate architecture migration.",
+    tech: ["Kotlin", "Jetpack Compose", "AI Automation", "Statsig"]
+  },
   {
     title: "Kapture Frontline",
     description: "Field service management application to trace product activities. Integrated APIs and third-party libraries for data management using Kotlin and Java.",
@@ -120,12 +156,41 @@ export const ROADMAP: RoadmapItem[] = [
     stage: "Stage 4",
     title: "Architecture & Scale",
     description: "SDK development, MVVM, and optimizing performance with Firebase tools."
+  },
+  {
+    stage: "Stage 5",
+    title: "AI Workflow Automation",
+    description: "Building AI-driven workflows to accelerate architecture migration (RIB to MVVM) and boost development productivity."
   }
 ];
 
+// Derive total years of experience from the earliest start date in EXPERIENCE.
+const MONTHS: Record<string, number> = {
+  jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+};
+
+const parseStartDate = (period: string): Date | null => {
+  const m = period.match(/([A-Za-z]{3})[A-Za-z]*\s+(\d{4})/);
+  if (!m) return null;
+  const month = MONTHS[m[1].toLowerCase()];
+  if (month === undefined) return null;
+  return new Date(Number(m[2]), month, 1);
+};
+
+export const YEARS_EXPERIENCE = (() => {
+  const starts = EXPERIENCE
+    .map(e => parseStartDate(e.period))
+    .filter((d): d is Date => d !== null);
+  if (starts.length === 0) return 0;
+  const earliest = Math.min(...starts.map(d => d.getTime()));
+  const years = (Date.now() - earliest) / (1000 * 60 * 60 * 24 * 365.25);
+  return Math.floor(years);
+})();
+
 export const STATS = [
-  { label: "Years Experience", value: 3, suffix: "+" },
-  { label: "Projects Delivered", value: 8, suffix: "+" },
-  { label: "Top Clients", value: 6, suffix: "+" },
+  { label: "Years Experience", value: YEARS_EXPERIENCE, suffix: "+" },
+  { label: "Projects Delivered", value: 9, suffix: "+" },
+  { label: "Top Clients", value: 7, suffix: "+" },
   { label: "Hackathon Rank", value: 2, suffix: "nd" }
 ];

@@ -24,14 +24,52 @@ const Experience: React.FC = () => {
               </span>
             </div>
 
-            <ul className="space-y-3">
-              {exp.achievements.map((item, i) => (
-                <li key={i} className="text-slate-600 dark:text-slate-400 flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {exp.achievements && (
+              <ul className="space-y-3">
+                {exp.achievements.map((item, i) => (
+                  <li key={i} className="text-slate-600 dark:text-slate-400 flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {exp.clients && (
+              <div className="space-y-6">
+                {exp.clients.map((client, ci) => (
+                  <div key={ci} className="pl-4 border-l-2 border-cyan-400/60 dark:border-cyan-500/40">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-x-3 mb-3">
+                      <h4 className="text-base font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wide">
+                        {client.client}
+                      </h4>
+                      {client.period && (
+                        <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                          {client.period}
+                        </span>
+                      )}
+                    </div>
+                    <ul className="space-y-3">
+                      {client.achievements.map((item, i) => {
+                        const isObj = typeof item !== 'string';
+                        const text = isObj ? item.text : item;
+                        const icon = isObj ? item.icon : undefined;
+                        return (
+                          <li key={i} className="text-slate-600 dark:text-slate-400 flex items-start gap-3">
+                            {icon ? (
+                              <span className="mt-0.5 flex-shrink-0 group-hover:scale-125 transition-transform">{icon}</span>
+                            ) : (
+                              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                            )}
+                            {text}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>

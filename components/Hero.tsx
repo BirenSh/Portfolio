@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
 
   const rightIcons = [
     'figma_icon.png', 'jira_icon.png', 'bitbucket_icon.png',
-    'claude_icon.png', 'n8n_icon.png'
+    'claude_icon.png', 'n8n_icon.png', 'porter_icon.png'
   ];
 
   return (
