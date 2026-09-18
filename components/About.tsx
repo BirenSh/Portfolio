@@ -1,7 +1,16 @@
 import React from 'react';
+import { Truck, Lightbulb, Zap, Droplet, Flame, ShoppingBag } from 'lucide-react';
+import { YEARS_EXPERIENCE } from '../constants.tsx';
 
 const About: React.FC = () => {
-  const clients = ["Philips", "Bajaj Electricals", "Hindware", "Faber", "Frootle"];
+  const clients = [
+    { name: "Porter", icon: <Truck className="w-4 h-4 text-indigo-500" /> },
+    { name: "Philips", icon: <Lightbulb className="w-4 h-4 text-sky-500" /> },
+    { name: "Bajaj Electricals", icon: <Zap className="w-4 h-4 text-amber-500" /> },
+    { name: "Hindware", icon: <Droplet className="w-4 h-4 text-cyan-500" /> },
+    { name: "Faber", icon: <Flame className="w-4 h-4 text-orange-500" /> },
+    { name: "Frootle", icon: <ShoppingBag className="w-4 h-4 text-emerald-500" /> },
+  ];
 
   return (
     <section id="about" className="py-20 border-t border-slate-200 dark:border-slate-800">
@@ -16,7 +25,7 @@ const About: React.FC = () => {
           </div>
           {/* Badge */}
           <div className="absolute -bottom-6 -right-6 p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 hidden md:block group-hover:scale-110 transition-transform z-10">
-            <span className="text-4xl font-bold bg-gradient-to-br from-indigo-500 to-cyan-400 bg-clip-text text-transparent">3+</span>
+            <span className="text-4xl font-bold bg-gradient-to-br from-indigo-500 to-cyan-400 bg-clip-text text-transparent">{YEARS_EXPERIENCE}+</span>
             <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Years Experience</p>
           </div>
         </div>
@@ -37,8 +46,9 @@ const About: React.FC = () => {
             <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Clients I've Worked With:</h3>
             <div className="flex flex-wrap gap-3">
               {clients.map(client => (
-                <span key={client} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium border border-transparent hover:border-indigo-500/30 transition-all hover-glow cursor-default">
-                  {client}
+                <span key={client.name} className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium border border-transparent hover:border-indigo-500/30 transition-all hover-glow cursor-default">
+                  {client.icon}
+                  {client.name}
                 </span>
               ))}
             </div>
